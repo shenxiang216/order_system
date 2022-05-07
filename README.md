@@ -1,26 +1,6 @@
 # 点餐系统
 ## 效果图
-![效果图](https://cdn.jsdelivr.net/gh/shenxiang216/blog-imgs/wuhanxicheng/202203291038955.png)
-
-![](https://cdn.jsdelivr.net/gh/shenxiang216/blog-imgs/order_system/202205070956953.png)
-
-![](https://cdn.jsdelivr.net/gh/shenxiang216/blog-imgs/order_system/202205070959715.png)
-
-![](https://cdn.jsdelivr.net/gh/shenxiang216/blog-imgs/order_system/202205070958064.png)
-
-![](https://cdn.jsdelivr.net/gh/shenxiang216/blog-imgs/order_system/202205070958508.png)
-
-![](https://cdn.jsdelivr.net/gh/shenxiang216/blog-imgs/order_system/202205070958248.png)
-
-![](https://cdn.jsdelivr.net/gh/shenxiang216/blog-imgs/order_system/202205070959965.png)
-
-![](https://cdn.jsdelivr.net/gh/shenxiang216/blog-imgs/order_system/202205071000705.png)
-
-![](https://cdn.jsdelivr.net/gh/shenxiang216/blog-imgs/order_system/202205071000233.png)
-
-![](https://cdn.jsdelivr.net/gh/shenxiang216/blog-imgs/order_system/202205071000590.png)
-
-![](https://cdn.jsdelivr.net/gh/shenxiang216/blog-imgs/order_system/202205071000812.png)
+![效果图](https://cdn.jsdelivr.net/gh/shenxiang216/blog-imgs/wuhanxicheng/202203291038955.png)![](https://cdn.jsdelivr.net/gh/shenxiang216/blog-imgs/order_system/202205070956953.png)![](https://cdn.jsdelivr.net/gh/shenxiang216/blog-imgs/order_system/202205070959715.png)![](https://cdn.jsdelivr.net/gh/shenxiang216/blog-imgs/order_system/202205070958064.png)![](https://cdn.jsdelivr.net/gh/shenxiang216/blog-imgs/order_system/202205070958508.png)![](https://cdn.jsdelivr.net/gh/shenxiang216/blog-imgs/order_system/202205070958248.png)![](https://cdn.jsdelivr.net/gh/shenxiang216/blog-imgs/order_system/202205070959965.png)![](https://cdn.jsdelivr.net/gh/shenxiang216/blog-imgs/order_system/202205071000705.png)![](https://cdn.jsdelivr.net/gh/shenxiang216/blog-imgs/order_system/202205071000233.png)![](https://cdn.jsdelivr.net/gh/shenxiang216/blog-imgs/order_system/202205071000590.png)![](https://cdn.jsdelivr.net/gh/shenxiang216/blog-imgs/order_system/202205071000812.png)
 
 
 
