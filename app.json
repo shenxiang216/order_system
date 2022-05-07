@@ -1,0 +1,19 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/list/list",
+    "pages/order/balance/balance",
+    "pages/mine/mine",
+    "pages/order/list/list",
+    "pages/order/detail/detail",
+    "pages/cut/cut"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#3E8E7E",
+    "navigationBarTitleText": "Light点餐",
+    "navigationBarTextStyle": "white"
+  },
+  "sitemapLocation": "sitemap.json"
+}

@@ -1,0 +1,274 @@
+/* pages/list/list.wxss */
+.page {
+  overflow-y: hidden;
+}
+
+.list-left-menu {
+  width: 160rpx;
+  font-size: 26rpx;
+  position: absolute;
+  left: 0px;
+  z-index: 10;
+}
+
+.list-left-menu-box-unselect {
+  padding: 10rpx;
+  border-bottom: 1px solid #e3e3e3;
+  height: 72rpx;
+  color: #6c6c6c;
+  background: #f9f9f9;
+}
+
+.list-left-menu-box-selected {
+  padding: 10rpx;
+  height: 72rpx;
+  color: var(--main-bg-color);
+  border-left: 3px solid var(--main-bg-color);
+  background: white;
+}
+
+.list-tab {
+  margin-left: 170rpx;
+  font-size: 25rpx;
+  background: #f3f4f6;
+  color: #cbcccf;
+  padding: 2px;
+}
+
+.list-menu-name {
+  text-align: center;
+  margin-top: 14rpx;
+}
+
+.list-image-box {
+  width: 160rpx;
+  height: 72px;
+  text-align: center;
+}
+
+.content-list {
+  margin-left: 160rpx;
+  display: flex;
+  border-bottom: 1px solid #e3e3e3;
+}
+
+.list-image {
+  width: 108rpx;
+  margin-top: 16rpx;
+}
+
+.issue-name {
+  width: 200px;
+  font-size: 30rpx;
+  margin-top: 20rpx;
+}
+
+.plus-icon {
+  float: right;
+  color: var(--main-bg-color);
+  font-size: 46rpx;
+}
+
+.operate-bar {
+  z-index: 1001;
+  position: absolute;
+  bottom: 0px;
+  height: 110rpx;
+  width: 100%;
+  display: flex;
+}
+
+.gouwuche {
+  width: 75%;
+  background: #353535;
+  height: 100%;
+}
+
+.gouwuche-icon {
+  font-size: 40px;
+  color: #87888e;
+  margin-left: 10px;
+  position: relative;
+}
+
+.number-msg {
+  padding: 1px 7px;
+  border-radius: 50%;
+  background: white;
+  color: red;
+  font-size: 14px;
+  position: absolute;
+  text-align: center;
+  top: 0px;
+  right: -5px;
+}
+
+.gouwuche-price {
+  color: #a9a9a9;
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  font-size: 15px;
+}
+
+.submit-btn {
+  height: 100%;
+  background: #f7f7f7;
+  width: 25%;
+  display: flex;
+}
+
+.submit-btn-label {
+  color: #a9a9a9;
+  font-size: 15px;
+  margin: auto;
+}
+
+.drawer_screen {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background: #000;
+  opacity: 0.5;
+  overflow: hidden;
+}
+
+.drawer_box_ad {
+  margin-left: 7%;
+  width: 86%;
+  overflow: hidden;
+  position: fixed;
+  top: 15%;
+  z-index: 1001;
+  background: #ffffff;
+  border-radius: 4px;
+}
+
+.cartlist-float {
+  width: 100%;
+  overflow: hidden;
+  position: fixed;
+  z-index: 1001;
+  bottom: 55px;
+  max-height: 250px;
+}
+
+.drawer_content_ad {
+  height: 289px;
+  width: 100%;
+  padding: 10px;
+}
+
+.select-line-nav {
+  font-size: 12px;
+  margin-left: 5px;
+  margin-top: 10px;
+  color: #ababab;
+}
+
+.select-tab {
+  padding: 5px 7px;
+  border: 1px solid #ababab;
+  font-size: 12px;
+  border-radius: 5px;
+  margin: 5px;
+  color: #ababab;
+  z-index: 1002;
+}
+
+.select-active {
+  color: var(--main-bg-color);
+  border: 1px solid var(--main-bg-color);
+}
+
+.select-price {
+  font-size: 14px;
+  color: var(--main-bg-color);
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.btn-putIn {
+  height: 40px;
+  width: 100px;
+  font-size: 14px;
+  background: var(--main-bg-color);
+  color: white;
+  margin-right: 20px;
+}
+
+.activity-color {
+  color: var(--main-bg-color);
+}
+
+.color-white {
+  color: white;
+}
+
+.activity-color-bg {
+  background: var(--main-bg-color);
+}
+
+.label-cart-bar {
+  color: #878787;
+  font-size: 12px;
+  border-left: 4px solid var(--main-bg-color);
+  margin-left: 20px;
+}
+
+.icon-clear {
+  color: #878787;
+  float: right;
+  margin-right: 10px;
+}
+
+.label-clear {
+  color: #878787;
+  font-size: 12px;
+}
+
+.cart-list-box {
+  background: #ffffff;
+  display: flex;
+  font-size: 13px;
+}
+
+.list-info {
+  width: 50%;
+  padding: 5px 15px;
+}
+
+.list-info-size {
+  font-size: 10px;
+  color: #b1b1b1;
+}
+
+.icon-li-circle {
+  margin-left: 15px;
+  font-size: 46rpx;
+  color: var(--main-bg-color);
+}
+
+.font20 {
+  font-size: 46rpx;
+}
+
+.cart-scroll-list {
+  height: 450rpx;
+}
+
+.cut-bar {
+  height: 20px;
+  position: fixed;
+  bottom: 55px;
+  background: var(--main-bg-color);
+  width: 100%;
+  color: #fff7ec;
+  font-size: 12px;
+  text-align: center;
+}

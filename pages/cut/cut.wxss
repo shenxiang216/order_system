@@ -1,0 +1,135 @@
+/* pages/order/list/list.wxss */
+Page {
+  background: #f8f8f8;
+}
+
+.active-color {
+  background: #e53085;
+}
+
+.unactive-color {
+  background: #999999;
+}
+
+.start-btn {
+  width: 100px;
+  height: 30px;
+  background: #f14c66;
+  font-size: 14px;
+  color: white;
+}
+
+.note-btn {
+  font-size: 14px;
+  color: grey;
+  margin-top: 30px;
+}
+
+.dindgan-i {
+  font-size: 100px;
+  color: grey;
+}
+
+.tab-box {
+  width: 50%;
+  display: flex;
+  font-size: 14px;
+  color: white;
+}
+
+.info {
+  display: flex;
+  padding: 10px;
+  background-size: cover;
+}
+
+.info image {
+  width: 80px;
+  height: 80px;
+}
+
+.detail {
+  font-size: 14px;
+  padding: 10px;
+  width: 100%;
+}
+
+.detail span {
+  /* color:#FF9C35 */
+}
+
+.orderNum {
+  padding: 2px 10px;
+  font-size: 14px;
+}
+
+.card {
+  border-radius: 10px;
+  width: 90%;
+  margin: auto;
+  margin-top: 16px;
+  position: relative;
+}
+
+.unuse {
+  background-color: #e53085;
+  color: white;
+}
+
+.isUse {
+  background-color: grey;
+  color: white;
+}
+
+.opBar {
+  margin-right: 25px;
+  padding-bottom: 20px;
+  display: flex;
+}
+
+.opBar a {
+  font-size: 14px;
+  padding: 3px 10px;
+  background: #e53085;
+  color: white;
+  border-radius: 5px;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.note {
+  font-size: 24rpx;
+}
+
+.st {
+  font-size: 28rpx;
+  position: absolute;
+  right: -5px;
+  top: 26px;
+  transform: rotate(45deg);
+  width: 80px;
+  text-align: center;
+  display: block;
+  background: red;
+}
+
+.sl {
+  font-size: 36rpx;
+  font-weight: blod;
+  color: white;
+  margin-right: 20rpx;
+}
+
+.top-r {
+  border-bottom: 1px dashed white;
+  width: 100%;
+  padding: 5px;
+}
+
+.logo-re {
+  width: 200rpx !important;
+  height: 100rpx !important;
+  position: absolute;
+  right: 20rpx;
+  bottom: 30rpx;
+}
