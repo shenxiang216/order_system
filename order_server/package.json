@@ -5,6 +5,7 @@
   "main": "app.js",
   "dependencies": {
     "babel-cli": "^6.18.0",
+    "dayjs": "^1.11.2",
     "koa": "^2.0.0-alpha.7",
     "koa-bodyparser": "^3.2.0",
     "koa-cors": "0.0.16",

@@ -14,7 +14,6 @@ let register = async (ctx, next) => {
       type: sequelize.QueryTypes.SELECT,
     }
   )
-  console.log(isExist)
   // 用户初次登录注册信息
   if (isExist.length === 0) {
     if (!crb.avatarUrl) {

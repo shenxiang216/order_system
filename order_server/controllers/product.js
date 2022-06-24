@@ -17,7 +17,6 @@ let getfoodList = async (ctx, next) => {
       }
     )
     item.foods.forEach((item) => {
-      console.log(item)
       if (!item.size) {
         item.size = [
           {

@@ -383,7 +383,6 @@ let printDay = async (ctx, next) => {
       type: sequelize.QueryTypes.SELECT,
     }
   )
-  console.log(orderNumber)
   let sum = await sequelize.query(
     "select SUM(`sumMoney`) as count  from `order`  where  status =2 AND time BETWEEN '" +
       dayBegin +

@@ -2,8 +2,8 @@
  * @Author: 赵亚鑫Deep Lane
  * @Date: 2022-01-14 22:08:05
  * @LastEditors: 赵亚鑫Deep Lane
- * @LastEditTime: 2022-05-06 20:12:55
- * @Description: 
+ * @LastEditTime: 2022-05-09 22:01:49
+ * @Description:
  */
 const koa = require('koa')
 const router = require('koa-router')()
@@ -11,17 +11,18 @@ const bodyParser = require('koa-bodyparser')
 const json = require('koa-json')
 const fs = require('fs')
 const cors = require('koa-cors')
-import { sequelize } from './sql.js'
+
+import logger from './middlewares/logger'
+
 const app = new koa()
 app.use(bodyParser())
-const WebSocketServer = require('ws').Server
 app.use(async (ctx, next) => {
   console.log(`Process ${ctx.request.method} ${ctx.request.url}...`)
   await next()
 })
 
 app.use(cors())
-
+app.use(logger)
 //scan controlloer js
 var files = fs.readdirSync(__dirname + '/controllers')
 var js_files = files.filter((f) => {
@@ -61,39 +62,39 @@ for (var f of js_files) {
 
 //websocket
 
-let wss = new WebSocketServer({ port: 8181 })
-//连接用户
-let clients = {}
+// let wss = new WebSocketServer({ port: 8181 })
+// //连接用户
+// let clients = {}
 
-wss.on('connection', function (ws, req) {
-  console.log('client connected')
+// wss.on('connection', function (ws, req) {
+//   console.log('client connected')
 
-  let user_id = req.url.substr(10)
-  console.log(user_id + '上线')
-  clients[user_id] = {
-    user_id: user_id,
-    client: ws,
-  }
-  console.log(req.url)
-  ws.on('message', function (message) {
-    console.log(message)
-    console.log(clients.admin)
-    if (clients.hasOwnProperty('admin')) {
-      clients.admin.client.send(message)
-    } else {
-      console.log('管理员未上线')
-    }
-    ws.on('error', function (code, reason) {
-      console.log(reason)
-      console.log('异常关闭')
-      delete clients[user_id]
-    })
-    ws.on('close', function (code, reason) {
-      console.log('关闭连接')
-      delete clients[user_id]
-    })
-  })
-})
+//   let user_id = req.url.substr(10)
+//   console.log(user_id + '上线')
+//   clients[user_id] = {
+//     user_id: user_id,
+//     client: ws,
+//   }
+//   console.log(req.url)
+//   ws.on('message', function (message) {
+//     console.log(message)
+//     console.log(clients.admin)
+//     if (clients.hasOwnProperty('admin')) {
+//       clients.admin.client.send(message)
+//     } else {
+//       console.log('管理员未上线')
+//     }
+//     ws.on('error', function (code, reason) {
+//       console.log(reason)
+//       console.log('异常关闭')
+//       delete clients[user_id]
+//     })
+//     ws.on('close', function (code, reason) {
+//       console.log('关闭连接')
+//       delete clients[user_id]
+//     })
+//   })
+// })
 
 app.use(json())
 app.use(router.routes())

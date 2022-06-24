@@ -18,7 +18,6 @@ Page({
 
   onShow: function () {
     let openid = wx.getStorageSync('openId')
-    this.webSocketHandleMsg(openid, this)
     this.getMyOrder()
   },
 
@@ -27,7 +26,6 @@ Page({
    */
   onLoad: function (options) {
     let openid = wx.getStorageSync('openId')
-    this.webSocketInit(openid, this)
     if (options.model == 1) {
       this.setData({
         model: 1,
@@ -43,33 +41,13 @@ Page({
       cupNumber: wx.getStorageSync('cupNumber'),
     })
   },
-  //长链接
-  webSocketInit: function (openid, that) {
-    wx.connectSocket({
-      url: 'ws://127.0.0.1:8181?token=' + openid,
-    })
-  },
-  webSocketHandleMsg: function (openid, that) {
-    wx.onSocketOpen(function (res) {})
-    wx.onSocketError(function (res) {})
-    //心跳重连
-    wx.onSocketClose(function (res) {
-      wx.connectSocket({
-        url: 'ws://127.0.0.1:8181?token=' + openid,
-      })
-    })
-  },
-  onUnload: function () {
-    wx.closeSocket()
-  },
   //获取我的优惠券
   getMyOrder: function () {
     wx.showLoading()
     let that = this
     //获取我的订单
     wx.request({
-      url:
-        app.globalData.apiHost +
+      url: app.globalData.apiHost +
         '/getCutList?openid=' +
         wx.getStorageSync('openId') +
         '&model=0',
@@ -89,8 +67,7 @@ Page({
                 res.data.msg[i].detail.rule - 1
               ) {
                 that.setData({
-                  cutText:
-                    '满' +
+                  cutText: '满' +
                     res.data.msg[i].detail.rule +
                     '元立减' +
                     res.data.msg[i].detail.cut +
@@ -116,7 +93,11 @@ Page({
       },
     })
   },
-
+  onUnload() {
+    wx.hideToast({
+      success: (res) => {},
+    })
+  },
   gopay: function () {
     let that = this
     let nonce = Math.floor(
@@ -126,8 +107,7 @@ Page({
     let total = that.data.sumMonney - that.data.cutMonney
 
     wx.request({
-      url:
-        app.globalData.apiHost + '/wxPay?openid=' + wx.getStorageSync('openId'),
+      url: app.globalData.apiHost + '/wxPay?openid=' + wx.getStorageSync('openId'),
       method: 'POST',
       data: {
         nonce_str: nonce + 'a' + total,
@@ -144,7 +124,6 @@ Page({
             icon: 'success',
             duration: 2000,
           })
-
           that.addOrder(payModel.out_trade_no, payModel.package.substr(10))
         }
       },
@@ -158,8 +137,7 @@ Page({
     })
     let that = this
     wx.request({
-      url:
-        app.globalData.apiHost +
+      url: app.globalData.apiHost +
         '/addOrder?openid=' +
         wx.getStorageSync('openId'), //下单
       method: 'POST',
@@ -182,9 +160,6 @@ Page({
       success: function (res) {
         wx.setStorageSync('orderInfo', res.data.msg)
         wx.setStorageSync('cutMoney', that.data.cutMonney)
-        wx.sendSocketMessage({
-          data: 'newOrder',
-        })
         that.useCut()
         wx.hideLoading()
         wx.redirectTo({

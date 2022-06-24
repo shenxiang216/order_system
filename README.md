@@ -16,7 +16,7 @@
 * 小程序
 * node.js
 * koa
-* mongodb
+* mySQL
 
 ## 项目目录结构
 

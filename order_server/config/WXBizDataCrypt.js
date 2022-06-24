@@ -1,4 +1,11 @@
-var crypto = require('crypto')
+/*
+ * @Author: 赵亚鑫Deep Lane
+ * @Date: 2022-01-14 22:08:05
+ * @LastEditors: 赵亚鑫Deep Lane
+ * @LastEditTime: 2022-05-09 21:12:11
+ * @Description: 
+ */
+import { createDecipheriv } from 'crypto'
 
 function WXBizDataCrypt(appId, sessionKey) {
   this.appId = appId
@@ -7,20 +14,19 @@ function WXBizDataCrypt(appId, sessionKey) {
 
 WXBizDataCrypt.prototype.decryptData = function (encryptedData, iv) {
   // base64 decode
-  var sessionKey = new Buffer(this.sessionKey, 'base64')
-  encryptedData = new Buffer(encryptedData, 'base64')
-  iv = new Buffer(iv, 'base64')
+  let sessionKey = Buffer.from(this.sessionKey, 'base64')
+  encryptedData = Buffer.from(encryptedData, 'base64')
+  iv = Buffer.from(iv, 'base64')
 
   try {
-     // 解密
-    var decipher = crypto.createDecipheriv('aes-128-cbc', sessionKey, iv)
+    // 解密
+    let decipher = createDecipheriv('aes-128-cbc', sessionKey, iv)
     // 设置自动 padding 为 true，删除填充补位
     decipher.setAutoPadding(true)
-    var decoded = decipher.update(encryptedData, 'binary', 'utf8')
+    let decoded = decipher.update(encryptedData, 'binary', 'utf8')
     decoded += decipher.final('utf8')
-    
-    decoded = JSON.parse(decoded)
 
+    decoded = JSON.parse(decoded)
   } catch (err) {
     throw new Error('Illegal Buffer')
   }
@@ -32,4 +38,4 @@ WXBizDataCrypt.prototype.decryptData = function (encryptedData, iv) {
   return decoded
 }
 
-module.exports = WXBizDataCrypt
+export default WXBizDataCrypt

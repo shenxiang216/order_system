@@ -49,7 +49,7 @@ function raw(args) {
   for (let k in newArgs) {
     str += '&' + k + '=' + newArgs[k]
   }
-  str = str.substr(1)
+  str = str.substring(1)
   return str
 }
 
@@ -86,7 +86,7 @@ function raw1(args) {
   for (let k in newArgs) {
     str += '&' + k + '=' + newArgs[k]
   }
-  str = str.substr(1)
+  str = str.substring(1)
   return str
 }
 
@@ -94,6 +94,12 @@ function raw1(args) {
 let addOrder = async (ctx, next) => {
   //接受的参数
   let crb = ctx.request.body
+  if (!ctx.query.openid) {
+    return (ctx.response.body = {
+      code: 1,
+      msg: 'openid不能为空',
+    })
+  }
   //今日0点时间
   let time_s = moment().format('YYYY-MM-DD 00:00:00')
   //今日24点时间
@@ -111,7 +117,6 @@ let addOrder = async (ctx, next) => {
     }
   )
   // 生成下单号
-  console.log(total)
   let totaySum = total[0].total + 1
   let cathNumber = 'C'
   if (totaySum < 9) {
@@ -164,18 +169,18 @@ let addOrder = async (ctx, next) => {
     }
   )
 
-  for (let i = 0; i < crb.cartList.length; i++) {
-    await print(
-      crb.cartList[i].name,
-      crb.cartList[i].enName,
-      i + 1,
-      crb.cartList.length,
-      crb.cartList[i].detail,
-      cathNumber,
-      times,
-      crb.cartList[i].desc
-    )
-  }
+  // for (let i = 0; i < crb.cartList.length; i++) {
+  //   await print(
+  //     crb.cartList[i].name,
+  //     crb.cartList[i].enName,
+  //     i + 1,
+  //     crb.cartList.length,
+  //     crb.cartList[i].detail,
+  //     cathNumber,
+  //     times,
+  //     crb.cartList[i].desc
+  //   )
+  // }
 
   //更改用户在本店的消费金额
   await sequelize.query(
@@ -260,9 +265,7 @@ async function notify(openid, formid, cath, type, other) {
       '&secret=' +
       wxConfig.Secret
   )
-  console.log(tid)
   let access_token = JSON.parse(result).access_token
-  console.log('id====', formid)
   let option = {
     method: 'POST',
     uri:
@@ -277,7 +280,6 @@ async function notify(openid, formid, cath, type, other) {
   }
 
   let x = await rp(option)
-  console.log(x)
 }
 
 //支付
@@ -374,7 +376,6 @@ let getMyOrderDetail = async (ctx, next) => {
 //打印
 let printfOrder = async (ctx, next) => {
   let crb = ctx.request.body
-  console.log(crb)
   for (let i = 0; i < crb.cartList.length; i++) {
     await print(
       crb.cartList[i].name,
@@ -535,7 +536,6 @@ async function print(name, enName, index, sum, detail, cathNumber, time, desc) {
     json: true,
   }
   let result = await rp(option)
-  console.log(result)
   return result
 }
 

@@ -107,7 +107,6 @@ let getCutList = async (ctx, next) => {
           '.jpg?imageView2/2/w/144/h/144/format/png/q/75|watermark/2/text/5aWI6Iy25rC05bOw/font/5a6L5L2T/fontsize/240/fill/I0ZGRkZGRg==/dissolve/100/gravity/NorthEast/dx/5/dy/5|imageslim'
       }
     }
-    console.log('changdu', iuy.length)
     if (iuy.length > 0) {
       iuy[0].endDate = moment(iuy[0].endDate).format('YYYY-MM-DD')
       res[i].detail = iuy[0]
@@ -178,7 +177,6 @@ let getAllReduction = async (ctx, next) => {
         }
       )
       res[i].rule = result[0].name
-      console.log(result[0].name)
       res[i].img =
         'http://cdn.handsomebird.xin/t' +
         result[0].type +
@@ -197,7 +195,6 @@ let getAllReduction = async (ctx, next) => {
 let addReduction = async (ctx, next) => {
   //接受的参数
   let crb = ctx.request.body
-  console.log(crb)
   let timeF = function (t) {
     return moment(t).format('YYYY-MM-DD HH:mm:ss')
   }

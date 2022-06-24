@@ -30,16 +30,14 @@ App({
             wx.setStorageSync('openId', openId)
             wx.setStorageSync('session_key', session_key)
             wx.request({
-              url:
-                that.globalData.apiHost +
+              url: that.globalData.apiHost +
                 '/login?openId=' +
                 wx.getStorageSync('openId'), //登录
               header: {
                 'content-type': 'application/json',
               },
               success: function (res) {
-                if (res.data.code === 0) {
-                }
+                if (res.data.code === 0) {}
                 if (res.data.code === 1) {
                   let userInfo = {
                     openId: wx.getStorageSync('openId'),
@@ -54,8 +52,7 @@ App({
                     },
                     success() {
                       wx.request({
-                        url:
-                          that.globalData.apiHost +
+                        url: that.globalData.apiHost +
                           '/login?openId=' +
                           wx.getStorageSync('openId'), //登录
                         header: {
@@ -78,8 +75,7 @@ App({
   globalData: {
     userInfo: null,
     openId: null,
-    apiHost: 'https://order.mmyxyz.xyz', //云端
-    // apiHost: 'http://127.0.0.1:7002', //电脑本地联调
-    // apiHost: "http://172.20.10.2:7002",//手机预览 电脑手机需同网段
+    // apiHost: 'https://order.mmyxyz.xyz', //云端
+    apiHost: 'http://127.0.0.1:7002', //电脑本地联调
   },
 })
